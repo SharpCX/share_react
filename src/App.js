@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import CompDemo from './components/Router'
-import HCompDemo from './hcomp/Router'
+import CompDemo from './Comp/Router'
+import HCompDemo from './HComp/Router'
 import {Link, Route, BrowserRouter as Router, Switch} from "react-router-dom";
 
 function App() {
