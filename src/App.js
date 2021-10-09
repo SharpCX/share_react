@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import CompDemo from './Comp/Router'
 import HCompDemo from './HComp/Router'
+import ContextComp from './ContextComp/Router'
 import {Link, Route, BrowserRouter as Router, Switch} from "react-router-dom";
 
 function App() {
@@ -17,6 +17,9 @@ function App() {
                             <li>
                                 <Link to="/HCompDemo">HCompDemo</Link>
                             </li>
+                            <li>
+                                <Link to="/ContextComp">ContextComp</Link>
+                            </li>
                         </ul>
                     </nav>
 
@@ -26,6 +29,9 @@ function App() {
                         </Route>
                         <Route path="/HCompDemo">
                             <HCompDemo/>
+                        </Route>
+                        <Route path="/ContextComp">
+                            <ContextComp/>
                         </Route>
                     </Switch>
                 </div>
