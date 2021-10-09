@@ -1,25 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 
-class CComp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {counter: 1}
-        this.increaseOne = this.increaseOne.bind(this)
+export default function FComp() {
+    const [counter, setCounter] = useState(0);
+
+    const increaseOne = () => {
+        setCounter(counter + 1)
     }
 
-    increaseOne() {
-        this.setState((state, props)=>({
-            counter: state.counter + 1
-        }))
-    }
-
-    render() {
-        return (
-
-            <div>{this.state.counter}<input type='button' onClick={this.increaseOne} value='increase'/></div>
-
+    return (
+        <div>{counter}<input type='button' onClick={increaseOne} value='increase'/></div>
     )
-    }
 }
-
-export default CComp

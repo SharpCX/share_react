@@ -9,7 +9,7 @@ class CComp extends React.Component {
 
     increaseOne() {
         this.setState((state, props) => ({
-            counter: state.counter + 1
+            counter: state.counter + 0 + this.props.weight
         }))
     }
 

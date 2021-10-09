@@ -1,23 +1,38 @@
 import React from "react";
+import DataSource from "./DataSource";
+import HAComp from "./HAComp";
 
-class CComp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {counter: 1}
-        this.increaseOne = this.increaseOne.bind(this)
-    }
+function withWeight(WrappedComp) {
+    return class extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                weight: DataSource.getWeight()
+            }
+            this.handleChange = this.handleChange.bind(this)
+        }
 
-    increaseOne() {
-        this.setState((state, props) => ({
-            counter: state.counter + 1
-        }))
-    }
+        componentDidMount() {
+            DataSource.registerListener(this.handleChange)
+        }
 
-    render() {
-        return (
-            <div>{this.state.counter}<input type='button' onClick={this.increaseOne} value='increase'/></div>
-        )
+        componentWillUnmount() {
+            DataSource.removeListener(this.handleChange)
+        }
+
+        handleChange(){
+            this.setState(
+                {
+                    weight: DataSource.getWeight()
+                }
+            )
+        }
+
+        render() {
+            return <WrappedComp weight={this.state.weight} {...this.props}/>
+        }
     }
 }
 
-export default CComp
+export const WithWeightAComp = withWeight(HAComp)
+export const WithWeightBComp = withWeight(HAComp)
