@@ -2,6 +2,7 @@ import './App.css';
 import CompDemo from './Comp/Router'
 import HCompDemo from './HComp/Router'
 import ContextComp from './ContextComp/Router'
+import ReduxBasic from './ReduxBasic/Router'
 import {Link, Route, BrowserRouter as Router, Switch} from "react-router-dom";
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
                             <li>
                                 <Link to="/ContextComp">ContextComp</Link>
                             </li>
+                            <li>
+                                <Link to="/ReduxBasic">ReduxBasic</Link>
+                            </li>
                         </ul>
                     </nav>
 
@@ -32,6 +36,9 @@ function App() {
                         </Route>
                         <Route path="/ContextComp">
                             <ContextComp/>
+                        </Route>
+                        <Route path="/ReduxBasic">
+                            <ReduxBasic/>
                         </Route>
                     </Switch>
                 </div>
