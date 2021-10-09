@@ -11,7 +11,7 @@ class SubReduxComp extends React.Component {
             <div>
                 <input type='button' onClick={this.props.actionsCreators.increase} value='increase'/>
                 <input type='button' onClick={this.props.actionsCreators.decrease} value='decrease'/>
-                <div>xxx {this.props.counter}</div>
+                <div>Current Counter => {this.props.counter}</div>
             </div>
         )
     }
